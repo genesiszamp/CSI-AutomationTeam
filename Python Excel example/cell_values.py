@@ -11,3 +11,4 @@ for row in range(1,11):
         ws[char + str(row)] = char + str(row)
 
 wb.save('cells.xlsx')
+print(wb.active)
