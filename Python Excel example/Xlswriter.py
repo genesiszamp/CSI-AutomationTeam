@@ -19,3 +19,4 @@ for row_num, data in enumerate(list):
     worksheet = workbook.add_worksheet('Sum')
     worksheet.write(row_num, 0, data)
     worksheet.write(row_num, 1, ws.title)
+

@@ -1,28 +1,30 @@
 from openpyxl import Workbook, load_workbook
  
 wb = load_workbook('SLMS.xlsx')
-
+write = wb.create_sheet('Total')
 ws = wb.active
-sheet_names = ws.title
+sheets = wb.sheetnames
+n = 0
 
  
+total = []
 list = []
- 
-for row in ws.iter_rows():
-    list.append(row[1].value)
-    list.remove("Overdue Trainings")
-    list = [int(i) for i in list]
-    Overdue_Trainings = sum(list)
-
-
-sum=wb.create_sheet('Sum',0)
-sum.append([ws.title,Overdue_Trainings])
-
-#for sheet in wb.worksheets:
-#    print(sheet)
-
-
-
-print(Overdue_Trainings)
-print(sheet_names)
-wb.save("SLMS.xlsx")
+Overdue = 0
+for ws in wb.worksheets:
+     #Move along worksheets
+     ws = wb[sheets[n]]
+     n = n + 1
+     
+      #Create a list, convert to int  
+     for row in ws.iter_rows(min_row=2,min_col=1):
+        list.append(row[1].value)
+        list = [int(i) for i in list]
+        list = list.clear()
+        
+        
+total.append(list)       
+           
+      
+        
+print(total)
+        

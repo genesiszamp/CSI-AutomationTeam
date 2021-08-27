@@ -12,6 +12,3 @@ for row in range(1,11):
 
 wb.save('cells.xlsx')
 print(wb.active)
-print ('hola')
-print ('hola')
-print ('hola')
