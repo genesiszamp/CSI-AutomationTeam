@@ -14,17 +14,15 @@ for ws in wb.worksheets:
      #Move along worksheets
      ws = wb[sheets[n]]
      n = n + 1
-     
+
       #Create a list, convert to int  
      for row in ws.iter_rows(min_row=2,min_col=1):
         list.append(row[1].value)
         list = [int(i) for i in list]
-        list = list.clear()
-        
-        
-total.append(list)       
+        #list = list.clear()
+#total.append(list)       
            
       
         
-print(total)
+print(list)
         
