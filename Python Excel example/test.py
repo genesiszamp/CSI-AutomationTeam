@@ -14,20 +14,20 @@ total = []
 
 
 for ws in wb.worksheets:
-     #Change the active worksheet
+     #Move along worksheets
      ws = wb[sheets[n]]
      
-      #Create a int list 
+      #Create a list, convert to int  
      for row in ws.iter_rows(min_row=2,min_col=1):
         list.append(int(row[1].value))
         
-     #append the list to a new list with all the data sum   
+        
      total.append(sum(list))
      list.clear()
      n = n + 1
 total.append(sum(total))
 
-write = wb.create_sheet('Summary')
+write = wb.create_sheet('Total')
 
 write['A1'] = 'Managers'
 write['B1'] = 'Overdue Trainings'
@@ -43,4 +43,3 @@ wb.save("SLMS.xlsx")
 
         
 print(total)
-
